@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="content">
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        {% block content %} {% endblock %}
+    </div>
+    <h1>LOGIN</h1>
+    <form method="post">  
+        <div class="container">   
+            <label>Email : </label>   
+            <input type="text" placeholder="Enter email" name="email" value="{{ request.form['email'] }}">  
+            <br>
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" value="{{ request.form['password'] }}">
+            <br>
+            <br>
+            <button type="submit">Login</button>
+            <button type="submit" name="back">back</button>
+        </div>   
+</body>
+</html>
