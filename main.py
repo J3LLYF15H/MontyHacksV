@@ -19,6 +19,8 @@ def before_request():
 #home
 @app.route('/')
 def index():
+    if (session['score']==16):
+        return render_template('youwin.html')
     return render_template('index.html')
 
 ##########FILES##########
